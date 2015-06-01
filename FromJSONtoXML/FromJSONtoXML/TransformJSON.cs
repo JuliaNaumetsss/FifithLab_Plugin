@@ -14,7 +14,7 @@ namespace FromJSONtoXML
     {
         public string pluginName
         {
-            get { return "TransformerJSON"; }
+            get { return "TransformJSON"; }
         }
         public void PluginFunction()
         {

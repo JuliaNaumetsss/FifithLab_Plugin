@@ -50,6 +50,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.AddPlugin = new System.Windows.Forms.Button();
+            this.comboBoxPlugin = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // listOfClasses
@@ -251,11 +253,32 @@
             this.label6.TabIndex = 21;
             this.label6.Text = "класс объекта";
             // 
+            // AddPlugin
+            // 
+            this.AddPlugin.Location = new System.Drawing.Point(304, 81);
+            this.AddPlugin.Name = "AddPlugin";
+            this.AddPlugin.Size = new System.Drawing.Size(114, 23);
+            this.AddPlugin.TabIndex = 22;
+            this.AddPlugin.Text = "добавить плагин";
+            this.AddPlugin.UseVisualStyleBackColor = true;
+            this.AddPlugin.Click += new System.EventHandler(this.AddPlugin_Click);
+            // 
+            // comboBoxPlugin
+            // 
+            this.comboBoxPlugin.FormattingEnabled = true;
+            this.comboBoxPlugin.Location = new System.Drawing.Point(304, 114);
+            this.comboBoxPlugin.Name = "comboBoxPlugin";
+            this.comboBoxPlugin.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxPlugin.TabIndex = 23;
+            this.comboBoxPlugin.SelectedIndexChanged += new System.EventHandler(this.comboBoxPlugin_SelectedIndexChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(717, 448);
+            this.Controls.Add(this.comboBoxPlugin);
+            this.Controls.Add(this.AddPlugin);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.textBox1);
@@ -308,6 +331,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button AddPlugin;
+        private System.Windows.Forms.ComboBox comboBoxPlugin;
     }
 }
 

@@ -32,8 +32,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CommonPlugin">
+      <HintPath>..\..\CommonPlugin\CommonPlugin\bin\Debug\CommonPlugin.dll</HintPath>
+    </Reference>
     <Reference Include="MainClass">
       <HintPath>..\..\MainClass\MainClass\bin\Debug\MainClass.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json.Net20">
+      <HintPath>..\..\FromJSONtoXML\FromJSONtoXML\bin\Debug\Newtonsoft.Json.Net20.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

@@ -11,6 +11,9 @@ using System.IO;
 using System.Reflection;
 using System.Xml.Serialization;
 using MainClass;
+using System.Diagnostics;
+using CommonPlugin;
+using Newtonsoft.Json;
 
 namespace Films
 {
@@ -27,7 +30,7 @@ namespace Films
         public Type[] extraTypes, types;
         public string currentPath;
         public Assembly SampleAssembly;
-
+        private PluginManager pm = new PluginManager();
         // создаем объект указанного типа
         public object GetInstance(string strFullyQualifiedName)
         {
@@ -255,6 +258,36 @@ namespace Films
                     MessageBox.Show("dll не соответсвует формату");
                 textBox1.Text = "";
                 currentPath = "";
+            }
+        }
+
+        private void AddPlugin_Click(object sender, EventArgs e)
+        {
+            comboBoxPlugin.Text = "";
+            pm.ScanPlugins(AppDomain.CurrentDomain.BaseDirectory + "Plugins\\");
+
+            foreach (var plugin in pm.Plugins)
+            {
+                string pluginName = plugin.pluginName;
+                comboBoxPlugin.Items.Add(pluginName);
+            }
+            //comboBoxPlugin.Items.Clear();
+
+        }
+
+        private void comboBoxPlugin_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxPlugin.SelectedIndex == -1)
+                return;
+            int number = comboBoxPlugin.SelectedIndex;
+            try
+            {
+                pm.Plugins[number].PluginFunction();
+                MessageBox.Show("The transformation was successful", "Message");
+            }
+            catch
+            {
+                MessageBox.Show("Transform error. Maybe you have a bad file", "Error");
             }
         }
         
