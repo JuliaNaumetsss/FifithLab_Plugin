@@ -128,7 +128,7 @@ namespace Films
                     }
                     else
                     {
-                        MessageBox.Show("Invalid value");
+                        MessageBox.Show("Недопустимое значение","Error");
                         editionField.Text = editionField.Text + info.Name + " = " + info.GetValue(current) + "\n";
                     }
                 }
@@ -167,7 +167,7 @@ namespace Films
             TextWriter writer = new StreamWriter("file.xml");
             xs.Serialize(writer, myCollection);
             writer.Close();
-            MessageBox.Show("Сериализация прошла успешно");
+            MessageBox.Show("Сериализация прошла успешно","Message");
         }
         // срздаем массив типов наших объектов
         private void getTypesArray()
@@ -204,6 +204,7 @@ namespace Films
             myList = myCollection.myList;
             foreach (object obj in myList)
                 listCreateObjects.Items.Add(getName(obj.ToString()));
+            MessageBox.Show("Десериализация прошла успешно", "Message");
         }
         // выбираем dll-ку, которую хоти загрузить ( в textBox1.Text записывается путь)
         private void button1_Click(object sender, EventArgs e)
@@ -217,7 +218,7 @@ namespace Films
                 {
                     currentPath = "";
                     textBox1.Text = "";
-                    MessageBox.Show("Выберите файл расширением dll");
+                    MessageBox.Show("Выберите файл расширением dll","Error");
                     return;
                 }
             }
@@ -228,7 +229,7 @@ namespace Films
         {
             isNewClass = false;
             if (currentPath == "")
-                MessageBox.Show("Выберите файл!!!");
+                MessageBox.Show("Выберите файл!!!","Error");
             else 
             {
                 SampleAssembly = Assembly.LoadFrom(currentPath);
@@ -239,7 +240,7 @@ namespace Films
                 // в случае ошибки при загрузке dll
                 catch
                 {
-                    MessageBox.Show("Не удалось загрузить библиотеку");
+                    MessageBox.Show("Не удалось загрузить библиотеку","Error");
                     currentPath = "";
                     return;
                 }
@@ -253,9 +254,9 @@ namespace Films
                     }
                 }
                 if (isNewClass)
-                    MessageBox.Show("Класс добавлен");
+                    MessageBox.Show("Класс добавлен","Message");
                 else
-                    MessageBox.Show("dll не соответсвует формату");
+                    MessageBox.Show("dll не соответсвует формату","Error");
                 textBox1.Text = "";
                 currentPath = "";
             }
@@ -272,7 +273,7 @@ namespace Films
                 comboBoxPlugin.Items.Add(pluginName);
             }
             //comboBoxPlugin.Items.Clear();
-
+            MessageBox.Show("Плагины загружены");
         }
 
         private void comboBoxPlugin_SelectedIndexChanged(object sender, EventArgs e)
@@ -283,11 +284,11 @@ namespace Films
             try
             {
                 pm.Plugins[number].PluginFunction();
-                MessageBox.Show("The transformation was successful", "Message");
+                MessageBox.Show("Преобразование прошло успешно", "Message");
             }
             catch
             {
-                MessageBox.Show("Transform error. Maybe you have a bad file", "Error");
+                MessageBox.Show("Ошибка!!! Возможно, вы пытаетесь загрузить поврежденный файл", "Error");
             }
         }
         
