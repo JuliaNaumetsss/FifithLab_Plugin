@@ -20,7 +20,7 @@ namespace FromJSONtoXML
         {
             string json = null;
 
-            using (StreamReader sr = new StreamReader("JsonData.txt"))
+            using (StreamReader sr = new StreamReader("Data.json"))
             {
                 json = sr.ReadToEnd();
             }

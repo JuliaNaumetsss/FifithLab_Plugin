@@ -24,13 +24,13 @@ namespace FromXMLtoJSON
 
             public void PluginFunction()
             {
-                FileStream fs = new FileStream("file.xml", FileMode.Open);
+            FileStream fs = new FileStream("file.xml", FileMode.Open);
             XmlDocument doc = new XmlDocument();
             doc.Load(fs);
             fs.Close();
             string json = JsonConvert.SerializeXmlNode(doc);
 
-            File.WriteAllText("JsonData.txt", json);
+            File.WriteAllText("Data.json", json);
             }
     }
 }
