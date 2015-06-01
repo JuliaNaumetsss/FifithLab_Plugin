@@ -1,0 +1,22 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using MainClass;
+
+namespace ClassLibrary1
+{
+    public class Fantasy: Film
+    {
+        public string duration { get; set; }
+        public Fantasy()
+        {
+            name = "Путешествие";
+            producer = "Джон";
+            feature = "Фантастика";
+            director = "Алан";
+            duration = "2 часа";
+        }
+    }
+}
