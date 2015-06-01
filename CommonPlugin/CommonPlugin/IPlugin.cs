@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CommonPlugin
 {
-    interface IPlugin
+    public interface IPlugin
     {
         string pluginName { get; }
 

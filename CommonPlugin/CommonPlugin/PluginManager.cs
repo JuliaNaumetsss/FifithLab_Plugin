@@ -8,7 +8,7 @@ using System.Reflection;
 
 namespace CommonPlugin
 {
-    class PluginManager
+    public class PluginManager
     {
         public List<IPlugin> Plugins = new List<IPlugin>();
 
