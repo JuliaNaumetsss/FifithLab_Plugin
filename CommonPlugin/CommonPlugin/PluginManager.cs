@@ -14,13 +14,11 @@ namespace CommonPlugin
 
         public void ScanPlugins(string directory)
         {
-            //перебирвем все файлы dll
+            //перебираем все файлы dll
             foreach (var file in Directory.EnumerateFiles(directory, "*.dll", SearchOption.AllDirectories))
                 try
                 {
-                    //загружаем ассемблю
                     var ass = Assembly.LoadFile(file);
-                    //перебираем все типы из ассембли
                     foreach (var type in ass.GetTypes())
                     {
                         //проверяем наличие интерфейса IPlugin

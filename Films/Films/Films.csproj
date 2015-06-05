@@ -35,6 +35,10 @@
     <Reference Include="CommonPlugin">
       <HintPath>..\..\CommonPlugin\CommonPlugin\bin\Debug\CommonPlugin.dll</HintPath>
     </Reference>
+    <Reference Include="IConverter_XML, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\IConverter_XML.dll</HintPath>
+    </Reference>
     <Reference Include="MainClass">
       <HintPath>..\..\MainClass\MainClass\bin\Debug\MainClass.dll</HintPath>
     </Reference>
@@ -55,6 +59,7 @@
   <ItemGroup>
     <Compile Include="Cartoons.cs" />
     <Compile Include="Childrens.cs" />
+    <Compile Include="Facade.cs" />
     <Compile Include="Fiction.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -63,8 +68,10 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Growns.cs" />
+    <Compile Include="IFacade.cs" />
     <Compile Include="Melodrama.cs" />
     <Compile Include="MyListCollection.cs" />
+    <Compile Include="PluginAdapter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">

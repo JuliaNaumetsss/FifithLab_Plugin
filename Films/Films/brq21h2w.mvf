@@ -161,19 +161,18 @@ namespace Films
         {
             informationList.Items.Clear();
             editionField.Text = "";
-            Facade.OperationSerialize(myList, extraTypes, types, isNewClass);
-            //getTypesArray();
-            /*XmlSerializer xs = new XmlSerializer(typeof(MyListCollection), extraTypes);
+            getTypesArray();
+            XmlSerializer xs = new XmlSerializer(typeof(MyListCollection), extraTypes);
 
             var myCollection = new MyListCollection();
             myCollection.myList = myList;
             TextWriter writer = new StreamWriter("file.xml");
             xs.Serialize(writer, myCollection);
-            writer.Close();*/
+            writer.Close();
             MessageBox.Show("Сериализация прошла успешно","Message");
         }
         // срздаем массив типов наших объектов
-       /* private void getTypesArray()
+        private void getTypesArray()
         {
             if (isNewClass == true)
             {
@@ -192,7 +191,7 @@ namespace Films
             extraTypes[0] = typeof(Cartoons);
             extraTypes[1] = typeof(Fiction);
             extraTypes[2] = typeof(Melodrama);
-        }*/
+        }
         // десериализация
         private void deserialization_Click(object sender, EventArgs e)
         {
@@ -200,12 +199,11 @@ namespace Films
             editionField.Text = "";
             listCreateObjects.Items.Clear();
             myList.Clear();
-            myList = Facade.OperationDeserialize(extraTypes, types, isNewClass);
-            //getTypesArray();
-            /*XmlSerializer mySerializer = new XmlSerializer(typeof(MyListCollection), extraTypes);
+            getTypesArray();
+            XmlSerializer mySerializer = new XmlSerializer(typeof(MyListCollection), extraTypes);
             FileStream fs = new FileStream("file.xml", FileMode.Open);
             MyListCollection myCollection = (MyListCollection)mySerializer.Deserialize(fs);
-            myList = myCollection.myList;*/
+            myList = myCollection.myList;
             foreach (object obj in myList)
                 listCreateObjects.Items.Add(getName(obj.ToString()));
             MessageBox.Show("Десериализация прошла успешно", "Message");

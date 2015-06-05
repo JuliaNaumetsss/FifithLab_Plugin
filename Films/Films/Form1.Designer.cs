@@ -52,6 +52,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.AddPlugin = new System.Windows.Forms.Button();
             this.comboBoxPlugin = new System.Windows.Forms.ComboBox();
+            this.AddForeignPlugin = new System.Windows.Forms.Button();
+            this.comboBoxForeignPlugin = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // listOfClasses
@@ -105,9 +107,9 @@
             // 
             // editionField
             // 
-            this.editionField.Location = new System.Drawing.Point(418, 162);
+            this.editionField.Location = new System.Drawing.Point(418, 170);
             this.editionField.Name = "editionField";
-            this.editionField.Size = new System.Drawing.Size(270, 224);
+            this.editionField.Size = new System.Drawing.Size(270, 216);
             this.editionField.TabIndex = 5;
             this.editionField.Text = "";
             // 
@@ -255,9 +257,9 @@
             // 
             // AddPlugin
             // 
-            this.AddPlugin.Location = new System.Drawing.Point(304, 81);
+            this.AddPlugin.Location = new System.Drawing.Point(304, 23);
             this.AddPlugin.Name = "AddPlugin";
-            this.AddPlugin.Size = new System.Drawing.Size(114, 23);
+            this.AddPlugin.Size = new System.Drawing.Size(121, 23);
             this.AddPlugin.TabIndex = 22;
             this.AddPlugin.Text = "добавить плагин";
             this.AddPlugin.UseVisualStyleBackColor = true;
@@ -266,17 +268,38 @@
             // comboBoxPlugin
             // 
             this.comboBoxPlugin.FormattingEnabled = true;
-            this.comboBoxPlugin.Location = new System.Drawing.Point(304, 114);
+            this.comboBoxPlugin.Location = new System.Drawing.Point(304, 57);
             this.comboBoxPlugin.Name = "comboBoxPlugin";
             this.comboBoxPlugin.Size = new System.Drawing.Size(121, 21);
             this.comboBoxPlugin.TabIndex = 23;
             this.comboBoxPlugin.SelectedIndexChanged += new System.EventHandler(this.comboBoxPlugin_SelectedIndexChanged);
+            // 
+            // AddForeignPlugin
+            // 
+            this.AddForeignPlugin.Location = new System.Drawing.Point(304, 110);
+            this.AddForeignPlugin.Name = "AddForeignPlugin";
+            this.AddForeignPlugin.Size = new System.Drawing.Size(121, 25);
+            this.AddForeignPlugin.TabIndex = 24;
+            this.AddForeignPlugin.Text = "добавить сторонний плагин";
+            this.AddForeignPlugin.UseVisualStyleBackColor = true;
+            this.AddForeignPlugin.Click += new System.EventHandler(this.AddForeignPlugin_Click);
+            // 
+            // comboBoxForeignPlugin
+            // 
+            this.comboBoxForeignPlugin.FormattingEnabled = true;
+            this.comboBoxForeignPlugin.Location = new System.Drawing.Point(304, 143);
+            this.comboBoxForeignPlugin.Name = "comboBoxForeignPlugin";
+            this.comboBoxForeignPlugin.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxForeignPlugin.TabIndex = 25;
+            this.comboBoxForeignPlugin.SelectedIndexChanged += new System.EventHandler(this.comboBoxForeignPlugin_SelectedIndexChanged);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(717, 448);
+            this.Controls.Add(this.comboBoxForeignPlugin);
+            this.Controls.Add(this.AddForeignPlugin);
             this.Controls.Add(this.comboBoxPlugin);
             this.Controls.Add(this.AddPlugin);
             this.Controls.Add(this.label6);
@@ -333,6 +356,8 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button AddPlugin;
         private System.Windows.Forms.ComboBox comboBoxPlugin;
+        private System.Windows.Forms.Button AddForeignPlugin;
+        private System.Windows.Forms.ComboBox comboBoxForeignPlugin;
     }
 }
 
