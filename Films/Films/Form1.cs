@@ -26,7 +26,7 @@ namespace Films
 
         }
         object current;
-        public List<object> myList = new List<object>();
+        //public List<object> myList = new List<object>();
         public Boolean inputFlag = false, isNewClass = false;
         public Type[] extraTypes, types, adapter;
         public string currentPath;
@@ -58,7 +58,8 @@ namespace Films
             {
                 current = Activator.CreateInstance(types[listOfClasses.SelectedIndex - 3]);
             }
-            myList.Add(current);
+            //myList.Add(current);
+            Singleton.getInstance().add(current);
             listCreateObjects.Items.Add(getName(current.GetType().ToString()));
             
         }
@@ -67,7 +68,8 @@ namespace Films
         {
             if (listCreateObjects.SelectedIndex != -1)
             {
-                myList.RemoveAt(listCreateObjects.SelectedIndex);
+                //myList.RemoveAt(listCreateObjects.SelectedIndex);
+                Singleton.getInstance().deleteByIndex(listCreateObjects.SelectedIndex);
                 listCreateObjects.Items.RemoveAt(listCreateObjects.SelectedIndex);
                 informationList.Items.Clear();
             }
@@ -89,7 +91,8 @@ namespace Films
                 return;
             else
             {
-                current = myList[listCreateObjects.SelectedIndex];
+                //current = myList[listCreateObjects.SelectedIndex];
+                current = Singleton.getInstance().getByIndex(listCreateObjects.SelectedIndex);
                 Type myType = current.GetType();
                 System.Reflection.PropertyInfo[] propertyInfo = myType.GetProperties();
                 informationAboutObject(myType, propertyInfo);
@@ -107,7 +110,8 @@ namespace Films
             editionField.Text = "";
             if (listCreateObjects.SelectedIndex == -1)
                 return;
-            current = myList[listCreateObjects.SelectedIndex];
+            //current = myList[listCreateObjects.SelectedIndex];
+            current = Singleton.getInstance().getByIndex(listCreateObjects.SelectedIndex);
             Type myType = current.GetType();
             System.Reflection.PropertyInfo[] propertyInfo = myType.GetProperties();
             informationAboutObject(myType, propertyInfo);
@@ -154,14 +158,16 @@ namespace Films
             listCreateObjects.Items.Clear();
             informationList.Items.Clear();
             editionField.Text = "";
-            myList.Clear();
+            //myList.Clear();
+            Singleton.getInstance().clearMyList();
         }
         // сериализация
         private void serialization_Click(object sender, EventArgs e)
         {
             informationList.Items.Clear();
             editionField.Text = "";
-            Facade.OperationSerialize(myList, extraTypes, types, isNewClass);
+            //Facade.OperationSerialize(myList, extraTypes, types, isNewClass);
+            Facade.OperationSerialize(Singleton.getInstance().getMyList(), extraTypes, types, isNewClass);
             //getTypesArray();
             /*XmlSerializer xs = new XmlSerializer(typeof(MyListCollection), extraTypes);
 
@@ -199,14 +205,17 @@ namespace Films
             informationList.Items.Clear();
             editionField.Text = "";
             listCreateObjects.Items.Clear();
-            myList.Clear();
-            myList = Facade.OperationDeserialize(extraTypes, types, isNewClass);
+            //myList.Clear();
+            //myList = Facade.OperationDeserialize(extraTypes, types, isNewClass);
+            Singleton.getInstance().clearMyList();
+            Singleton.getInstance().setMyList(Facade.OperationDeserialize(extraTypes, types, isNewClass));
             //getTypesArray();
             /*XmlSerializer mySerializer = new XmlSerializer(typeof(MyListCollection), extraTypes);
             FileStream fs = new FileStream("file.xml", FileMode.Open);
             MyListCollection myCollection = (MyListCollection)mySerializer.Deserialize(fs);
             myList = myCollection.myList;*/
-            foreach (object obj in myList)
+            //foreach (object obj in myList)
+            foreach (object obj in Singleton.getInstance().getMyList())
                 listCreateObjects.Items.Add(getName(obj.ToString()));
             MessageBox.Show("Десериализация прошла успешно", "Message");
         }

@@ -70,6 +70,7 @@
     <Compile Include="Growns.cs" />
     <Compile Include="IFacade.cs" />
     <Compile Include="Melodrama.cs" />
+    <Compile Include="MyList.cs" />
     <Compile Include="MyListCollection.cs" />
     <Compile Include="PluginAdapter.cs" />
     <Compile Include="Program.cs" />
